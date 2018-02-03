@@ -15,10 +15,26 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     var movies: [[String:Any]] = []
     
+    var refreshcontrol: UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refreshcontrol = UIRefreshControl()
+        refreshcontrol.addTarget(self, action: #selector(NowPlayingViewController.loadToRefresh(_:)), for: .valueChanged)
+        
+        MovieTableView.insertSubview(refreshcontrol, at: 0)
 
         MovieTableView.dataSource = self
+        loadMovieContent()
+        
+    }
+    
+    @objc func loadToRefresh(_ refreshControl: UIRefreshControl){
+        loadMovieContent()
+    }
+    
+    func loadMovieContent(){
         
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -30,19 +46,20 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
             }
             else if let data = data {
                 
-               let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
                 // Parsing through data to get titles or movies
                 let movies = dataDictionary["results"] as! [[String:Any]]
                 self.movies = movies
+                
                 //Layout is set up before API is returned
                 //Must reload so data will display
                 self.MovieTableView.reloadData()
+                self.refreshcontrol.endRefreshing()
             }
         }
         task.resume()
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
