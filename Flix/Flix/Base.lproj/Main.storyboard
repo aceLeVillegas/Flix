@@ -55,6 +55,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="mcH-DC-fE4" id="IPb-FO-4oc"/>
+                                            <outlet property="posterImageView" destination="twP-47-hnU" id="Ief-w2-KMU"/>
                                             <outlet property="titleLabel" destination="cEe-gu-iYv" id="nN5-jZ-nKe"/>
                                         </connections>
                                     </tableViewCell>
@@ -69,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-170" y="-74"/>
+            <point key="canvasLocation" x="-550" y="-680"/>
         </scene>
     </scenes>
 </document>
