@@ -14,6 +14,7 @@
 		269740132022F10200D3325B /* FlixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269740122022F10200D3325B /* FlixTests.swift */; };
 		2697401E2022F10200D3325B /* FlixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2697401D2022F10200D3325B /* FlixUITests.swift */; };
 		2697402C2022F7B900D3325B /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2697402B2022F7B900D3325B /* NowPlayingViewController.swift */; };
+		26A371E820256C3500D978C7 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A371E720256C3500D978C7 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		2697401D2022F10200D3325B /* FlixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlixUITests.swift; sourceTree = "<group>"; };
 		2697401F2022F10200D3325B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2697402B2022F7B900D3325B /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		26A371E720256C3500D978C7 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				26973FFD2022F10100D3325B /* AppDelegate.swift */,
 				2697402B2022F7B900D3325B /* NowPlayingViewController.swift */,
 				269740012022F10100D3325B /* Main.storyboard */,
+				26A371E720256C3500D978C7 /* MovieCell.swift */,
 				269740042022F10100D3325B /* Assets.xcassets */,
 				269740062022F10100D3325B /* LaunchScreen.storyboard */,
 				269740092022F10100D3325B /* Info.plist */,
@@ -261,6 +264,7 @@
 			files = (
 				2697402C2022F7B900D3325B /* NowPlayingViewController.swift in Sources */,
 				26973FFE2022F10100D3325B /* AppDelegate.swift in Sources */,
+				26A371E820256C3500D978C7 /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
