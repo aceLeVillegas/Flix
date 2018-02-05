@@ -2,7 +2,7 @@
 
 **Name of your app** is a 
 
-Time spent: **X** hours spent in total
+Time spent: 6 hours spent in total
 
 ## User Stories
 
@@ -39,7 +39,7 @@ Here's a walkthrough of implemented user stories:
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/05a9K.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
