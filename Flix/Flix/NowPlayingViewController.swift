@@ -35,7 +35,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         
         LoadingActivityIndicator.startAnimating()
         loadMovieContent()
-        LoadingActivityIndicator.stopAnimating()
+        //LoadingActivityIndicator.stopAnimating()
         //loadingCircle.stopAnimating()
     }
     
