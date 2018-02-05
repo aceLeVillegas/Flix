@@ -8,14 +8,18 @@
 
 import UIKit
 import AlamofireImage
+import RappleProgressHUD
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var MovieTableView: UITableView!
     
+    @IBOutlet weak var LoadingActivityIndicator: UIActivityIndicatorView!
     var movies: [[String:Any]] = []
     
     var refreshcontrol: UIRefreshControl!
+    
+    var loadingCircle: RappleActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +30,13 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         MovieTableView.insertSubview(refreshcontrol, at: 0)
 
         MovieTableView.dataSource = self
-        loadMovieContent()
         
+        //loadingCircle.startAnimating(attributes: RappleModernAttributes)
+        
+        LoadingActivityIndicator.startAnimating()
+        loadMovieContent()
+        //LoadingActivityIndicator.stopAnimating()
+        //loadingCircle.stopAnimating()
     }
     
     @objc func loadToRefresh(_ refreshControl: UIRefreshControl){

@@ -2,14 +2,17 @@ PODS:
   - Alamofire (4.6.0)
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
+  - RappleProgressHUD (2.4.1)
 
 DEPENDENCIES:
   - AlamofireImage
+  - RappleProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  RappleProgressHUD: 1d97178abc04ea9e89e4df74227064ded389ce24
 
-PODFILE CHECKSUM: 002c7ea9aef426db393f1513872f754944bc610e
+PODFILE CHECKSUM: f611e3b922cdc1c5d383f691e3a5bf826fc56913
 
 COCOAPODS: 1.4.0
