@@ -35,7 +35,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         
         LoadingActivityIndicator.startAnimating()
         loadMovieContent()
-        //LoadingActivityIndicator.stopAnimating()
+        LoadingActivityIndicator.stopAnimating()
         //loadingCircle.stopAnimating()
     }
     
@@ -99,9 +99,14 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         cell.descriptionLabel.text = description
         
         
-        
+//        if(cell.isSelected){
+//            cell.selectedBackgroundView = UIColor.init(red: 255, green: 51, blue: 102, alpha: 0)
+//            print("Selected")
+//        }
+
         return cell
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
