@@ -8,10 +8,10 @@ Time spent: **X** hours spent in total
 
 The following **required** user stories are complete:
 
-- [ ] User sees app icon in home screen and styled launch screen (+1pt)
-- [ ] User can scroll through a list of movies currently playing in theaters from The Movie DB API (+5pt)
-- [ ] User can "Pull to refresh" the movie list (+2pt)
-- [ ] User sees a loading state while waiting for the movies to load (+2pt)
+- [X] User sees app icon in home screen and styled launch screen (+1pt)
+- [X] User can scroll through a list of movies currently playing in theaters from The Movie DB API (+5pt)
+- [X] User can "Pull to refresh" the movie list (+2pt)
+- [X] User sees a loading state while waiting for the movies to load (+2pt)
 
 The following **stretch** user stories are implemented:
 
@@ -28,8 +28,8 @@ The following **additional** user stories are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Using API for the loading state. 
+2. Discuss further about usig the view controller to retrieve data from APIs. 
 
 ## Video Walkthrough
 
@@ -39,13 +39,17 @@ Here's a walkthrough of implemented user stories:
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 ## Notes
 
 Describe any challenges encountered while building the app.
 
+I had difficulty using a 3rd party progress HUD and if I had more time I would have it implemented. As for changing the color of a cell that proved harder than expected. I assumed it would be an option on the right panel when on the storyboard However that wasn't the case. I tried hard coding the color change of the background and that method did not work either.  
+
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2018 Sarah Villegas
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
