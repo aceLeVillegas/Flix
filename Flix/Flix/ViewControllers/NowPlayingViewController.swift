@@ -77,7 +77,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
                 // Parsing through data to get titles or movies
-                let movies = dataDictionary["results"] as! [[String:Any]]
+                let movies = dataDictionary[MovieKeys.results] as! [[String:Any]]
                 self.movies = movies
                 
                 //Layout is set up before API is returned
@@ -101,11 +101,11 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         
         // Sort data
         let movie = movies[indexPath.row]
-        let title = movie["title"] as! String
-        let description = movie["overview"] as! String
+        let title = movie[MovieKeys.title] as! String
+        let description = movie[MovieKeys.description] as! String
         
         // Build full URL to retrieve image
-        let posterImgName = movie["poster_path"] as! String
+        let posterImgName = movie[MovieKeys.poster] as! String
         let baseURL = "https://image.tmdb.org/t/p/w500"
         let posterURL = URL(string: baseURL + posterImgName)!
         
@@ -116,13 +116,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         // Set Cell values to associated labels
         cell.titleLabel.text = title
         cell.descriptionLabel.text = description
-        
-        
-//        if(cell.isSelected){
-//            cell.selectedBackgroundView = UIColor.init(red: 255, green: 51, blue: 102, alpha: 0)
-//            print("Selected")
-//        }
-
+      
         return cell
     }
     
@@ -133,19 +127,15 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var destinationViewController = segue.destination as! DetailsViewController
+        let destinationViewController = segue.destination as! DetailsViewController
         
-        var cell = sender as! UITableViewCell
+        let cell = sender as! UITableViewCell
         
         if let indexPath = MovieTableView.indexPath(for: cell){
             
             let layerDown = movies[indexPath.row]
             destinationViewController.movie = layerDown
         }
-        
-        
-        
-        
         
     }
     

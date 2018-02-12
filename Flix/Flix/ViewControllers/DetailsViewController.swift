@@ -9,16 +9,6 @@
 import UIKit
 import AlamofireImage
 
-enum MovieKeys{
-    
-    static let title = "title"
-    static let backDorp = "backdrop_path"
-    static let poster = "poster_path"
-    static let description = "overview"
-    static let releaseDate = "release_date"
-}
-
-
 class DetailsViewController: UIViewController {
 
     @IBOutlet weak var backDropImageView: UIImageView!
