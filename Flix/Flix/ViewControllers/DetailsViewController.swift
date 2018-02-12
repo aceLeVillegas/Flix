@@ -40,8 +40,8 @@ class DetailsViewController: UIViewController {
             let posterURL = URL(string: baseURL + poster)!
             
             // Setting images for Poster and Back Drop
-            posterImageView.af_setImage(withURL: backDropURL)
-            backDropImageView.af_setImage(withURL: posterURL)
+            posterImageView.af_setImage(withURL: posterURL)
+            backDropImageView.af_setImage(withURL: backDropURL)
             
         }
     }

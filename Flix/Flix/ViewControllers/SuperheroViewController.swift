@@ -28,7 +28,41 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
         super.viewDidLoad()
 
         superHeroCollectionView.dataSource = self
+        
+        createTitleForNav()
         loadMovieContent()
+        spaceItems()
+        
+    }
+    func spaceItems(){
+        
+        let layout = superHeroCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = layout.minimumInteritemSpacing
+        let cellsPerLine: CGFloat = 3
+        let interItemSpacingTotal = layout.minimumInteritemSpacing * (cellsPerLine - 1 )
+        let width = superHeroCollectionView.frame.size.width / cellsPerLine - interItemSpacingTotal / cellsPerLine
+        layout.itemSize = CGSize(width: width, height: width * 3/2)
+    }
+    func createTitleForNav(){
+        
+        let navController = navigationController!
+        
+        let title = UIImage(named: "SuperHero.png")!
+        let imageView = UIImageView(image:title)
+        
+        // Center image for Navigation Bar
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        // Center X and Y coordinates on Navigation Bar
+        let bannerX = bannerWidth / 2 - title.size.width / 2
+        let bannerY = bannerHeight / 2 - title.size.width / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFit
+        
+        navigationItem.titleView = imageView
+        
     }
 
     override func didReceiveMemoryWarning() {
