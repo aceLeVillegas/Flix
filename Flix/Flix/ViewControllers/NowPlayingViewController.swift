@@ -13,7 +13,6 @@ import RappleProgressHUD
 class NowPlayingViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var MovieTableView: UITableView!
-    
     @IBOutlet weak var LoadingActivityIndicator: UIActivityIndicatorView!
     var movies: [[String:Any]] = []
     
@@ -31,14 +30,34 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
 
         MovieTableView.dataSource = self
         
-        //loadingCircle.startAnimating(attributes: RappleModernAttributes)
-        
         LoadingActivityIndicator.startAnimating()
         loadMovieContent()
-        //LoadingActivityIndicator.stopAnimating()
-        //loadingCircle.stopAnimating()
+        createTitleForNav()
+        LoadingActivityIndicator.stopAnimating()
+        
+    }
+    func createTitleForNav(){
+        
+        let navController = navigationController!
+        
+        let title = UIImage(named: "NowPlaying.png")!
+        let imageView = UIImageView(image:title)
+        
+        // Center image for Navigation Bar
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        // Center X and Y coordinates on Navigation Bar
+        let bannerX = bannerWidth / 2 - title.size.width / 2
+        let bannerY = bannerHeight / 2 - title.size.width / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFit
+        
+        navigationItem.titleView = imageView
+        
     }
     
+
     @objc func loadToRefresh(_ refreshControl: UIRefreshControl){
         loadMovieContent()
     }
@@ -113,15 +132,22 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        var destinationViewController = segue.destination as! DetailsViewController
+        
+        var cell = sender as! UITableViewCell
+        
+        if let indexPath = MovieTableView.indexPath(for: cell){
+            
+            let layerDown = movies[indexPath.row]
+            destinationViewController.movie = layerDown
+        }
+        
+        
+        
+        
+        
     }
-    */
-
+    
+    
 }
