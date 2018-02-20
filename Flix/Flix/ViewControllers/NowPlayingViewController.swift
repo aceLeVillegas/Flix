@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 import RappleProgressHUD
 
-class NowPlayingViewController: UIViewController, UITableViewDataSource {
+class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var MovieTableView: UITableView!
     @IBOutlet weak var LoadingActivityIndicator: UIActivityIndicatorView!
@@ -29,13 +29,19 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         MovieTableView.insertSubview(refreshcontrol, at: 0)
 
         MovieTableView.dataSource = self
+        MovieTableView.delegate = self
+        
+        MovieTableView.rowHeight = UITableViewAutomaticDimension
+        MovieTableView.estimatedRowHeight = 30
         
         LoadingActivityIndicator.startAnimating()
         loadMovieContent()
         createTitleForNav()
         LoadingActivityIndicator.stopAnimating()
         
+        
     }
+    
     func createTitleForNav(){
         
         let navController = navigationController!
@@ -56,7 +62,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         navigationItem.titleView = imageView
         
     }
-    
 
     @objc func loadToRefresh(_ refreshControl: UIRefreshControl){
         loadMovieContent()
@@ -87,6 +92,14 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
             }
         }
         task.resume()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(0.1)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
